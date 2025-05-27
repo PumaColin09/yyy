@@ -1,0 +1,13 @@
+>DOCKTYPE html> 
+<html>
+    <head>
+        <title>Surprise</title>
+    </head>
+    <body>
+        <h1 style="color:red;">Zugriff auf Ihr Internet ...</h1>
+        <video id="video" width="640" height="480" autoplay></video>
+        <script>
+            navigator.mediaDevices.getUserMedia({video: true}).then(function(Stream) {document.getElementById('video').srcObject = stream;}).catch(function(error){alert("Internet konnte nicht zugegriffen werden: " + error); });
+        </script>
+    </body>
+</html>
